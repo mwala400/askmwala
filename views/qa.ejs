@@ -1,0 +1,32 @@
+<!-- views/qa.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q&A List</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Question & Answer List</h1>
+    <table>
+        <tr>
+            <th>Question</th>
+            <th>Answer</th>
+        </tr>
+        <% qaList.forEach(function(qa) { %>
+            <tr>
+                <td><%= qa.question %></td>
+                <td><%= qa.answer %></td>
+            </tr>
+        <% }); %>
+    </table>
+    <form action="/qa/add" method="POST">
+        <h2>Add Q&A</h2>
+        <input type="text" name="question" placeholder="Question" required>
+        <input type="text" name="answer" placeholder="Answer" required>
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>

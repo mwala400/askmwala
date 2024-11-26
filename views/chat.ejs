@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .chat-container {
+            margin: 20px auto;
+            max-width: 600px;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .response {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        .image-container {
+            margin-top: 10px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <h2>ChatHAM</h2>
+ 
+
+        <div class="response">
+            <p><strong>Response:</strong></p>
+            <p><%= response %></p>
+            <div class="image-container">
+                <% if (images.length > 0) { %>
+                    <% images.forEach(function(image) { %>
+                        <img src="<%= image %>" alt="Image related to response">
+                    <% }); %>
+                <% } %>
+            </div>
+                   <form method="POST" action="/chat">
+            <div class="form-group">
+                <label for="message">Your Question:</label>
+                <input type="text" id="message" name="message" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="lang">Language (optional, default is English):</label>
+                <input type="text" id="lang" name="lang" class="form-control" hidden>
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
